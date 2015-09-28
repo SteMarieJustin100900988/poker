@@ -8,8 +8,9 @@ public class handHasCards {
 
 	@Test
 	public void test() {
-		Hand h = new Hand();
-		assertEquals("fourClub,fiveDiamond,sixHeart,queenDiamond,aceSpade", h.getCards());
+		Deck d = new Deck();
+		Hand h = new Hand(d);
+		assertEquals("aceSpade,twoSpade,threeSpade,fourSpade,fiveSpade", h.getCards());
 	}
 
 }

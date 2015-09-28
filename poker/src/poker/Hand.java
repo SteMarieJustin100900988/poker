@@ -7,12 +7,12 @@ public class Hand {
 	Card c4;
 	Card c5;
 	
-	public Hand(){
-		c1 = new Card("four", "Club");
-		c2 = new Card("five", "Diamond");
-		c3 = new Card("six", "Heart");
-		c4 = new Card("queen", "Diamond");
-		c5 = new Card("ace", "Spade");
+	public Hand(Deck d){
+		c1 = d.dealCard();
+		c2 = d.dealCard();
+		c3 = d.dealCard();
+		c4 = d.dealCard();
+		c5 = d.dealCard();
 	}
 
 	public String getCards(){
