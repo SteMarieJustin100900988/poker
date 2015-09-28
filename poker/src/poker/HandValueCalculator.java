@@ -215,12 +215,23 @@ public class HandValueCalculator {
 	
 	//determines if exactly x cards in the hand are the same card
 	private boolean sameRank(Hand h, int x){
+<<<<<<< HEAD
 		int count = 1;
 		for(int i=0; i<5; i++){
 			if(count == x){
 				return true;
 			} else {
 				count = 1;
+=======
+		int count = 0;
+		for(int i=0; i<4; i++){
+			//don't need to do last one since it'll 
+			//already be checked with everything else
+			if(count == x){
+				return true;
+			} else {
+				count = 0;
+>>>>>>> origin/master
 			}
 			for(int j=0; j<5; j++){
 				if(j==i){
@@ -233,6 +244,7 @@ public class HandValueCalculator {
 		}
 		return (count == x);
 	}
+<<<<<<< HEAD
 	//determines if exactly x cards in the hand are the same card as the entered position
 	private boolean sameRank(int pos, Hand h, int x){
 		int count = 1;
@@ -246,6 +258,8 @@ public class HandValueCalculator {
 		}
 		return (count == x);
 	}
+=======
+>>>>>>> origin/master
 	
 	//returns the CardRank of string, if applicable
 	private CardRank stringToCR(String in){
@@ -338,7 +352,11 @@ public class HandValueCalculator {
 				return false;
 			}
 		} else {
+<<<<<<< HEAD
 			int highestOrd = stringToCR(h.getCardRank(highest)).ordinal();
+=======
+			int highestOrd = stringToCR(h.getCard(highest)).ordinal();
+>>>>>>> origin/master
 			if(	directlyBelow(h, CardRank.values()[highestOrd])
 			&&	directlyBelow(h, CardRank.values()[highestOrd-1])
 			&&	directlyBelow(h, CardRank.values()[highestOrd-2])
