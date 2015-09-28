@@ -2,13 +2,14 @@ package poker;
 
 public class Card {
 	String suit;
-	String number;
+	String rank;
 	
-	public Card(String s, String n){
-		
+	public Card(String r, String s){
+		suit = s;
+		rank = r;
 	}
 	
 	public String getValue(){
-		return "";
+		return rank + suit;
 	}
 }
