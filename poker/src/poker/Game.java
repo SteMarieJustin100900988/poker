@@ -32,7 +32,7 @@ public class Game {
 	public String getFinalScore(){
 		ArrayList<Player> playerInOrder = new ArrayList<Player>();
 		ArrayList<Player> playerListCopy = new ArrayList<Player>(players);
-		for(int j=1; j<5; j++){
+		for(int j=4; j>0; j++){
 			for(int i=0; i<playerListCopy.size(); i++){
 				if(playerListCopy.get(i).getHand().getValue() == j){
 					playerInOrder.add(playerListCopy.get(i));
