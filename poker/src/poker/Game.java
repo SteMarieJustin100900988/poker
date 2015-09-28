@@ -7,6 +7,9 @@ public class Game {
 	Deck d;
 
 	public Game(int playerNum){
+		if(playerNum <2 || playerNum >4){
+			throw new IllegalArgumentException("Bad number of Players");
+		}
 		d = new Deck();
 		players = new ArrayList<Player>();
 		for(int i=0; i<playerNum; i++){
@@ -49,5 +52,9 @@ public class Game {
 		finalString = finalString + getScore(playerInOrder.size()-1, playerInOrder);
 		
 		return finalString;
+	}
+
+	//runs the game
+	public void run() {
 	}
 }
