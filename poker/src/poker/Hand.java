@@ -105,4 +105,9 @@ public class Hand {
 		}
 		return r;
 	}
+	
+	//returns the value of the hand (1-4)
+	public int getValue(){
+		return 0;
+	}
 }
