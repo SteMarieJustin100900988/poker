@@ -43,17 +43,40 @@ public class Hand {
 		}
 	}
 	
+	//gets the card suit at the position
+	public String getCardSuit(int pos){
+		switch(pos){
+		case 0: return c1.getSuit();
+		case 1: return c2.getSuit();
+		case 2: return c3.getSuit();
+		case 3: return c4.getSuit();
+		case 4: return c5.getSuit();
+		default: return "";
+		}
+	}
+	
+	//gets the card rank at the position
+	public String getCardRank(int pos){
+		switch(pos){
+		case 0: return c1.getRank();
+		case 1: return c2.getRank();
+		case 2: return c3.getRank();
+		case 3: return c4.getRank();
+		case 4: return c5.getRank();
+		default: return "";
+		}
+	}
+	
 	//compares 2 hands to see if their rank is equal
 	public boolean compare(Hand h){
 		ArrayList<Integer> ignore = new ArrayList<Integer>();
 		int t;
 		for(int i=0; i<5; i++){
-			t = compareCard(ignore, h, i);
-			if(t>=0){
-				ignore.add(t);
-			} else {
+			t = compareCardIS(ignore, h, i);
+			if(t<0){
 				return false;
 			}
+			ignore.add(t);
 		}
 		return true;
 	}
@@ -62,18 +85,46 @@ public class Hand {
 	//while ignoring the other hand's positions that are in al
 	private int compareCard(ArrayList<Integer> al, Hand h, int c){
 		int r = -1;
+		boolean skipFlag = false;
 		for (int i=0; i<5; i++){
 			for(int j=0; j<al.size(); j++){
 				if(i == al.get(j)){
-					i++;
+					skipFlag = true;
 					break;
 				}
 			}
-			if(i>4){
-				break;
+			if(skipFlag){
+				skipFlag = false;
+				continue;
 			}
 			if(getCard(c).equals(h.getCard(i))){
 				r = i;
+				break;
+			}
+		}
+		return r;
+	}
+	
+	//compares one card in hand to the entire other hand
+	//while ignoring the other hand's positions that are in al
+	//Ignores Suit
+	private int compareCardIS(ArrayList<Integer> al, Hand h, int c){
+		int r = -1;
+		boolean skipFlag = false;
+		for (int i=0; i<5; i++){
+			for(int j=0; j<al.size(); j++){
+				if(i == al.get(j)){
+					skipFlag = true;
+					break;
+				}
+			}
+			if(skipFlag){
+				skipFlag = false;
+				continue;
+			}
+			if(getCardRank(c).equals(h.getCardRank(i))){
+				r = i;
+				break;
 			}
 		}
 		return r;
