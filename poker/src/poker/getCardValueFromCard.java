@@ -8,8 +8,8 @@ public class getCardValueFromCard {
 
 	@Test
 	public void test() {
-		Card c = new Card();
-		assertEquals( "", c.getValue());
+		Card c = new Card("four", "Club");
+		assertEquals( "fourClub", c.getValue());
 	}
 
 }
