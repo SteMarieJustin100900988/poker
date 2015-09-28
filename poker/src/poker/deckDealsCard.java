@@ -10,7 +10,7 @@ public class deckDealsCard {
 	public void test() {
 		Deck d = new Deck();
 		Deck d2 = new Deck();
-		Card c = d.dealCard();
+		d.dealCard();
 		assertEquals(51, d.remainingCards());
 		assertNotEquals(d2, d);
 	}
