@@ -47,6 +47,41 @@ public class HandValueCalculator {
 			h2.setValue(1+offset);
 		}
 	}
+	//determines which hand is higher and sets their values
+	public void rankHand(Hand h1, Hand h2, Hand h3){
+		Tier h1Tier = handTier(h1);
+		Tier h2Tier = handTier(h2);
+		if( h1Tier.ordinal() == h2Tier.ordinal() ){
+			higherHand(h1Tier, h1, h2);
+		} else if (h1Tier.ordinal() > h2Tier.ordinal()){
+			h1.setValue(1);
+			h2.setValue(2);
+		} else {
+			h1.setValue(2);
+			h2.setValue(1);
+		}
+	}
+	//determines which hand is higher and sets their values
+	public void rankHand(Hand h1, Hand h2, Hand h3, Hand h4){
+		Tier h1Tier = handTier(h1);
+		Tier h2Tier = handTier(h2);
+		if( h1Tier.ordinal() == h2Tier.ordinal() ){
+			higherHand(h1Tier, h1, h2);
+		} else if (h1Tier.ordinal() > h2Tier.ordinal()){
+			h1.setValue(1);
+			h2.setValue(2);
+		} else {
+			h1.setValue(2);
+			h2.setValue(1);
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	//determines which hand is higher inside the "tier" the hands are in
 	//then sets their rank
