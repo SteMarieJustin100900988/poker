@@ -13,10 +13,10 @@ public class Hand {
 
 	public String getCards(){
 		String returnstring = "";
-		returnstring = returnstring + c1.getValue() + ",";
-		returnstring = returnstring + c2.getValue() + ",";
-		returnstring = returnstring + c3.getValue() + ",";
-		returnstring = returnstring + c4.getValue() + ",";
+		returnstring = returnstring + c1.getValue() + " ";
+		returnstring = returnstring + c2.getValue() + " ";
+		returnstring = returnstring + c3.getValue() + " ";
+		returnstring = returnstring + c4.getValue() + " ";
 		returnstring = returnstring + c5.getValue();
 		return returnstring;
 	}
