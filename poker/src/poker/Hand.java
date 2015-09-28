@@ -10,7 +10,15 @@ public class Hand {
 		c4 = d.dealCard();
 		c5 = d.dealCard();
 	}
+	public Hand(Card i1, Card i2, Card i3, Card i4, Card i5){
+		c1 = i1;
+		c2 = i2;
+		c3 = i3;
+		c4 = i4;
+		c5 = i5;
+	}
 
+	//returns the complete string of cards in hand
 	public String getCards(){
 		String returnstring = "";
 		returnstring = returnstring + c1.getValue() + " ";
@@ -21,6 +29,7 @@ public class Hand {
 		return returnstring;
 	}
 	
+	//gets the card at the position
 	public String getCard(int pos){
 		switch(pos){
 		case 0: return c1.getValue();
@@ -30,5 +39,10 @@ public class Hand {
 		case 4: return c5.getValue();
 		default: return "";
 		}
+	}
+	
+	//compares 2 hands to see if their rank is equal
+	public boolean compare(Hand h){
+		return false;
 	}
 }
