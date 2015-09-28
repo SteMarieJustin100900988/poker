@@ -8,7 +8,8 @@ public class playerHasHand {
 
 	@Test
 	public void test() {
-		Player p1 = new Player();
+		Deck d = new Deck();
+		Player p1 = new Player(d);
 		assertNotEquals("", p1.getHand().getCards());
 	}
 
