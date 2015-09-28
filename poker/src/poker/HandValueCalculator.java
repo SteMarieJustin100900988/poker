@@ -8,21 +8,6 @@ public class HandValueCalculator {
 		FullHouse, FourOfAKind,
 		StraightFlush, RoyalFlush
 	}
-	private enum CardRank {
-		Two, Three, Four, Five, Six,
-		Seven, Eight, Nine, Ten, Jack,
-		Queen, King, Ace
-	}
-	
-	//TESTCODE
-	public String rankOneHand(Hand h){
-		return handTier(h).toString();
-	}
-	
-	//determines which hand is higher and sets their values
-	public void rankHand(Hand h1, Hand h2){
-		Tier h1Tier = handTier(h1);
-		Tier h2Tier = handTier(h2);
 		if( h1Tier.ordinal() == h2Tier.ordinal() ){
 			higherHand(h1Tier, h1, h2);
 		} else if (h1Tier.ordinal() > h2Tier.ordinal()){
