@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Hand {
 	private Card c1, c2, c3, c4, c5;
+	private int value;
 	
 	public Hand(Deck d){
 		c1 = d.dealCard();
@@ -11,6 +12,7 @@ public class Hand {
 		c3 = d.dealCard();
 		c4 = d.dealCard();
 		c5 = d.dealCard();
+		value = 1;
 	}
 	public Hand(Card i1, Card i2, Card i3, Card i4, Card i5){
 		c1 = i1;
@@ -18,6 +20,7 @@ public class Hand {
 		c3 = i3;
 		c4 = i4;
 		c5 = i5;
+		value = 1;
 	}
 
 	//returns the complete string of cards in hand
@@ -28,6 +31,18 @@ public class Hand {
 		returnstring = returnstring + c3.getValue() + " ";
 		returnstring = returnstring + c4.getValue() + " ";
 		returnstring = returnstring + c5.getValue();
+		return returnstring;
+	}
+
+	//returns the final string of cards in hand + value
+	public String getFinalValue(){
+		String returnstring = "";
+		returnstring = returnstring + c1.getValue() + " ";
+		returnstring = returnstring + c2.getValue() + " ";
+		returnstring = returnstring + c3.getValue() + " ";
+		returnstring = returnstring + c4.getValue() + " ";
+		returnstring = returnstring + c5.getValue() + "; Rank: ";
+		returnstring = returnstring + value;
 		return returnstring;
 	}
 	
@@ -108,6 +123,10 @@ public class Hand {
 	
 	//returns the value of the hand (1-4)
 	public int getValue(){
-		return 0;
+		return value;
+	}
+	
+	public void setValue(int in){
+		value = in;
 	}
 }
