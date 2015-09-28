@@ -47,32 +47,59 @@ public class HandValueCalculator {
 			h2.setValue(1+offset);
 		}
 	}
+	//determines which hand is higher and sets their values, with an offset
+	public void rankHand(Hand h1, Hand h2, Hand h3, int offset){
+		rankHand(h1, h2, 1);
+		if(h1.getValue() == 2){
+			if(h2.getValue() == 2){
+				rankHand(h2, h3);
+			} else {
+				rankHand(h2, h3, 2);
+			}
+		} else {
+			rankHand(h1, h3, 2);
+		}
+	}
 	//determines which hand is higher and sets their values
 	public void rankHand(Hand h1, Hand h2, Hand h3){
-		Tier h1Tier = handTier(h1);
-		Tier h2Tier = handTier(h2);
-		if( h1Tier.ordinal() == h2Tier.ordinal() ){
-			higherHand(h1Tier, h1, h2);
-		} else if (h1Tier.ordinal() > h2Tier.ordinal()){
-			h1.setValue(1);
-			h2.setValue(2);
+		rankHand(h1, h2);
+		if(h1.getValue() == 1){
+			if(h2.getValue() == 1){
+				rankHand(h2, h3);
+			} else {
+				rankHand(h2, h3, 1);
+			}
 		} else {
-			h1.setValue(2);
-			h2.setValue(1);
+			rankHand(h1, h3, 1);
 		}
 	}
 	//determines which hand is higher and sets their values
 	public void rankHand(Hand h1, Hand h2, Hand h3, Hand h4){
-		Tier h1Tier = handTier(h1);
-		Tier h2Tier = handTier(h2);
-		if( h1Tier.ordinal() == h2Tier.ordinal() ){
-			higherHand(h1Tier, h1, h2);
-		} else if (h1Tier.ordinal() > h2Tier.ordinal()){
-			h1.setValue(1);
-			h2.setValue(2);
+		rankHand(h1, h2, h3);
+		if(h1.getValue() == 1){
+			if(h2.getValue() == 1){
+				if(h3.getValue() == 1){
+					rankHand(h3, h4);
+				} else {
+					rankHand(h3, h4, 1);
+				}
+			} else {
+				if(h3.getValue() == 1){
+					rankHand(h2, h4, 1);
+				} else {
+					rankHand(h2, h3, h4, 1);
+				}
+			}
 		} else {
-			h1.setValue(2);
-			h2.setValue(1);
+			if(h2.getValue() == 1){
+				if(h3.getValue() == 1){
+					rankHand(h1, h4, 1);
+				} else {
+					rankHand(h1, h3, h4, 1);
+				}
+			} else {
+				rankHand(h1, h2, h4, 1);
+			}
 		}
 	}
 	
