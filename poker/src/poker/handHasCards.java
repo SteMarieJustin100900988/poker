@@ -8,9 +8,13 @@ public class handHasCards {
 
 	@Test
 	public void test() {
-		Deck d = new Deck();
-		Hand h = new Hand(d);
-		assertEquals("aceSpade,twoSpade,threeSpade,fourSpade,fiveSpade", h.getCards());
+		Hand h = new Hand( 	new Card("Ace", "Spade"),
+							new Card("Two", "Spade"),
+							new Card("Three", "Spade"),
+							new Card("Four", "Spade"),
+							new Card("Five", "Spade")
+							);
+		assertEquals("AceSpade,TwoSpade,ThreeSpade,FourSpade,FiveSpade", h.getCards());
 	}
 
 }
