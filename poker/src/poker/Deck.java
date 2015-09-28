@@ -76,6 +76,17 @@ public class Deck {
 	}
 	
 	public void returnCard(Card c){
-		
+		if (!cardInDeck(c)){
+			cards.add(c);
+		}
+	}
+	
+	public boolean cardInDeck(Card c){
+		for(int i=0; i < remainingCards(); i++){
+			if(c.getValue() == cards.get(i).getValue()){
+				return true;
+			}
+		}
+		return false;
 	}
 }
