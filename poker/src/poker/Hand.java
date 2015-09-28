@@ -72,7 +72,7 @@ public class Hand {
 		ArrayList<Integer> ignore = new ArrayList<Integer>();
 		int t;
 		for(int i=0; i<5; i++){
-			t = compareCardIS(ignore, h, i);
+			t = compareCard(ignore, h, i);
 			if(t<0){
 				return false;
 			}
@@ -83,32 +83,8 @@ public class Hand {
 	
 	//compares one card in hand to the entire other hand
 	//while ignoring the other hand's positions that are in al
-	private int compareCard(ArrayList<Integer> al, Hand h, int c){
-		int r = -1;
-		boolean skipFlag = false;
-		for (int i=0; i<5; i++){
-			for(int j=0; j<al.size(); j++){
-				if(i == al.get(j)){
-					skipFlag = true;
-					break;
-				}
-			}
-			if(skipFlag){
-				skipFlag = false;
-				continue;
-			}
-			if(getCard(c).equals(h.getCard(i))){
-				r = i;
-				break;
-			}
-		}
-		return r;
-	}
-	
-	//compares one card in hand to the entire other hand
-	//while ignoring the other hand's positions that are in al
 	//Ignores Suit
-	private int compareCardIS(ArrayList<Integer> al, Hand h, int c){
+	private int compareCard(ArrayList<Integer> al, Hand h, int c){
 		int r = -1;
 		boolean skipFlag = false;
 		for (int i=0; i<5; i++){
