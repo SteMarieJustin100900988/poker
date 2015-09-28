@@ -114,6 +114,8 @@ public class Deck {
 		return false;
 	}
 	
+	
+	
 	public Card removeCardFromDeck(Card c){
 		int ind = findCardIndex(c);
 		if(ind > -1){
@@ -126,9 +128,32 @@ public class Deck {
 		}
 	}
 	
+	public Card removeCardFromDeck(String s){
+		int ind = findCardIndex(s);
+		if(ind > -1){
+			Card r = cards.get(ind);
+			cards.remove(ind);
+			return r;
+		} else {
+			new IllegalArgumentException("Card not in deck");
+			return new Card("Joker", "");
+		}
+	}
+	
+	
+	
 	private int findCardIndex(Card c){
 		for(int i=0; i < cards.size(); i++){
 			if(c.getValue().equals(cards.get(i).getValue())){
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	private int findCardIndex(String s){
+		for(int i=0; i < cards.size(); i++){
+			if(s.equals(cards.get(i).getValue())){
 				return i;
 			}
 		}
