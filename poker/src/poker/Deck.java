@@ -1,7 +1,6 @@
 package poker;
 
 import java.util.ArrayList;
-import java.math.*;
 
 public class Deck {
 	private ArrayList<Card> cards;
