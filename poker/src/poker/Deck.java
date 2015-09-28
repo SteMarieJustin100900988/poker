@@ -70,7 +70,8 @@ public class Deck {
 	}
 	
 	public Card dealCard(){
-		Card c = new Card("ace", "Spade");
+		Card c = cards.get(0);
+		cards.remove(0);
 		return c;
 	}
 }
