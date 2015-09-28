@@ -14,7 +14,7 @@ public class handHasCards {
 							new Card("Four", "Spade"),
 							new Card("Five", "Spade")
 							);
-		assertEquals("AceSpade,TwoSpade,ThreeSpade,FourSpade,FiveSpade", h.getCards());
+		assertEquals("AceSpade TwoSpade ThreeSpade FourSpade FiveSpade", h.getCards());
 	}
 
 }
