@@ -68,4 +68,9 @@ public class Deck {
 	public int remainingCards(){
 		return cards.size();
 	}
+	
+	public Card dealCard(){
+		Card c = new Card("ace", "Spade");
+		return c;
+	}
 }
