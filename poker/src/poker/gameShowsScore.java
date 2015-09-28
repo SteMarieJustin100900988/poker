@@ -15,16 +15,13 @@ public class gameShowsScore {
 		Hand h2 = g.getPlayerHand(1);
 		HandValueCalculator hvc = new HandValueCalculator();
 		
-		hvc.rankHand(h1, h2);
+		h1.setValue(1);
+		h2.setValue(2);
 		
 		assertEquals(p1id+" "+h1.getFinalValue(), g.getScore(0));
 		assertEquals(p2id+" "+h2.getFinalValue(), g.getScore(1));
 		
-		if(h1.getValue() == 1){
-			assertEquals(g.getFinalScore(), g.getScore(1) + "\n" + g.getScore(0));
-		} else {
-			assertEquals(g.getFinalScore(), g.getScore(0) + "\n" + g.getScore(1));
-		}
+		assertEquals(g.getFinalScore(), g.getScore(1) + "\n" + g.getScore(0) + "\n");
 		
 	}
 

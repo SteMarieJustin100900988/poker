@@ -35,7 +35,7 @@ public class Game {
 	public String getFinalScore(){
 		ArrayList<Player> playerInOrder = new ArrayList<Player>();
 		ArrayList<Player> playerListCopy = new ArrayList<Player>(players);
-		for(int j=4; j>0; j++){
+		for(int j=4; j>0; j--){
 			for(int i=0; i<playerListCopy.size(); i++){
 				if(playerListCopy.get(i).getHand().getValue() == j){
 					playerInOrder.add(playerListCopy.get(i));
@@ -46,10 +46,9 @@ public class Game {
 		}
 		
 		String finalString = "";
-		for(int i =0; i<playerInOrder.size()-1; i++){
+		for(int i =0; i<playerInOrder.size(); i++){
 			finalString = finalString + getScore(i, playerInOrder) + "\n";
 		}
-		finalString = finalString + getScore(playerInOrder.size()-1, playerInOrder);
 		
 		return finalString;
 	}
