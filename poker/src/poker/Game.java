@@ -15,4 +15,16 @@ public class Game {
 	public String getPlayerID(int playerN){
 		return players.get(playerN).getPlayerID();
 	}
+	
+	public Hand getPlayerHand(int playerN){
+		return players.get(playerN).getHand();
+	}
+	
+	public String getScore(int playerN){
+		return "";
+	}
+	
+	public String getFinalScore(){
+		return "";
+	}
 }
