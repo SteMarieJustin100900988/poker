@@ -56,5 +56,13 @@ public class Game {
 
 	//runs the game
 	public void run() {
+		HandValueCalculator hvc = new HandValueCalculator();
+		if(players.size() == 2){
+			hvc.rankHand(players.get(0).getHand(), players.get(1).getHand());
+		} else if(players.size()==3){
+			hvc.rankHand(players.get(0).getHand(), players.get(1).getHand(), players.get(2).getHand());
+		} else {
+			hvc.rankHand(players.get(0).getHand(), players.get(1).getHand(), players.get(2).getHand(), players.get(3).getHand());
+		}
 	}
 }
