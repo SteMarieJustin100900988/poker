@@ -2,14 +2,13 @@ package poker;
 
 public class Player {
 	static int initID = 0;
-	static Deck deck = new Deck();
 	String pid;
 	Hand myHand;
 
-	public Player(){
+	public Player(Deck d){
 		pid = "Player " + initID;
 		initID++;
-		myHand = new Hand(deck);
+		myHand = new Hand(d);
 	}
 	
 	public String getPlayerID(){
