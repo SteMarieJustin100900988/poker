@@ -383,53 +383,33 @@ public class HandValueCalculator {
 				}
 			} else if(sameRank(h, 2)){
 				//TwoPair,OnePair
-				
-				//Pair Checking
-				if(sameRank(h, 1, 2)){
-					if(sameRank(h, 3, 4) || sameRank(h, 3, 5) || sameRank(h, 4, 5)){
-						return Tier.TwoPair;
-					} else {
-						return Tier.OnePair;
-					}
-				} else if(sameRank(h, 1, 3)){
-					if(sameRank(h, 2, 4) || sameRank(h, 2, 5) || sameRank(h, 4, 5)){
-						return Tier.TwoPair;
-					} else {
-						return Tier.OnePair;
-					}
-				} else if(sameRank(h, 1, 4)){
-					if(sameRank(h, 2, 3) || sameRank(h, 2, 5) || sameRank(h, 3, 5)){
-						return Tier.TwoPair;
-					} else {
-						return Tier.OnePair;
-					}
-				} else if(sameRank(h, 1, 5)){
-					if(sameRank(h, 2, 4) || sameRank(h, 2, 3) || sameRank(h, 4, 3)){
-						return Tier.TwoPair;
-					} else {
-						return Tier.OnePair;
-					}
-				} else {
-					if(sameRank(h, 2, 3)){
-						if(sameRank(h, 4, 5)){
-							return Tier.TwoPair;
-						} else {
-							return Tier.OnePair;
-						}
-					} else if(sameRank(h, 2, 4)){
-						if(sameRank(h, 3, 5)){
-							return Tier.TwoPair;
-						} else {
-							return Tier.OnePair;
-						}
-					}  else {
-						return Tier.OnePair;
-					}
-				}
-				//Pair checking end
+				return onePairOrTwoPair(h);
 			} else {
 				return Tier.HighCard;
 			}
+		}
+	}
+
+	//checks whether there is 1 pair or 2
+	private Tier onePairOrTwoPair(Hand h) {
+		int pairs = 0;
+		int highestValue = highestCardInHand(h);
+		while(!sameRank(highestValue, h, 2)){
+			highestValue = highestCardInHandBelow(h, stringToCR(h.getCardRank(highestValue)));
+		}
+		pairs++;
+		highestValue = highestCardInHandBelow(h, stringToCR(h.getCardRank(highestValue)));
+		while(highestValue != -1){
+			if(!sameRank(highestValue, h, 2)){
+				highestValue = highestCardInHandBelow(h, stringToCR(h.getCardRank(highestValue)));
+			} else {
+				pairs++;
+				break;
+			}
+		}
+		switch(pairs){
+		case 2: return Tier.TwoPair;
+		default: return Tier.OnePair;
 		}
 	}
 }
