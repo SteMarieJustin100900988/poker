@@ -74,4 +74,8 @@ public class Deck {
 		cards.remove(0);
 		return c;
 	}
+	
+	public void returnCard(Card c){
+		
+	}
 }
