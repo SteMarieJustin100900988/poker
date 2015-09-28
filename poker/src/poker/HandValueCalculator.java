@@ -94,8 +94,14 @@ public class HandValueCalculator {
 			rankFinalValues(h1, h2, high1, high2);
 			break;
 		case Straight:
-			high1 = highestCardInHandBelow(h1, CardRank.Ace);
-			high2 = highestCardInHandBelow(h2, CardRank.Ace);
+			high1 = highestCardInHand(h1);
+			high2 = highestCardInHand(h2);
+			if(	stringToCR(h1.getCardRank(high1)).ordinal() == CardRank.Ace.ordinal()
+			&& 	stringToCR(h2.getCardRank(high2)).ordinal() == CardRank.Ace.ordinal()
+					){
+				high1 = highestCardInHandBelow(h1, CardRank.Ace);
+				high2 = highestCardInHandBelow(h2, CardRank.Ace);
+			}
 			rankFinalValues(h1, h2, high1, high2);
 			break;
 		case ThreeOfAKind:
