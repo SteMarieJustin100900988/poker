@@ -74,10 +74,12 @@ public class Deck {
 		return temp;
 	}
 	
+	//returns size of card list
 	public int remainingCards(){
 		return cards.size();
 	}
 	
+	//deals a random card from the deck
 	public Card dealCard(){
 		if (cards.size() <= 0){
 			throw new IllegalArgumentException("No cards in deck");
@@ -88,6 +90,7 @@ public class Deck {
 		return c;
 	}
 	
+	//puts a card back into the deck.
 	public void returnCard(Card c){
 		if(validCard(c)){
 			if (!cardInDeck(c)){
@@ -96,6 +99,7 @@ public class Deck {
 		}
 	}
 	
+	//checks if the card is in the deck
 	public boolean cardInDeck(Card c){
 		for(int i=0; i < cards.size(); i++){
 			if(c.getValue().equals(cards.get(i).getValue())){
@@ -105,6 +109,7 @@ public class Deck {
 		return false;
 	}
 	
+	//ensures the card is a card that can be in the deck
 	private boolean validCard(Card c){
 		for(int i=0; i < validCards.size(); i++){
 			if(c.getValue().equals(validCards.get(i).getValue())){
@@ -115,7 +120,7 @@ public class Deck {
 	}
 	
 	
-	
+	//removes a card from the deck
 	public Card removeCardFromDeck(Card c){
 		int ind = findCardIndex(c);
 		if(ind > -1){
@@ -127,7 +132,7 @@ public class Deck {
 			return new Card("Joker", "");
 		}
 	}
-	
+	//removes a card from the deck (by string)
 	public Card removeCardFromDeck(String s){
 		int ind = findCardIndex(s);
 		if(ind > -1){
@@ -139,9 +144,8 @@ public class Deck {
 			return new Card("Joker", "");
 		}
 	}
-	
-	
-	
+
+	//finds the index of a card if it is in the deck
 	private int findCardIndex(Card c){
 		for(int i=0; i < cards.size(); i++){
 			if(c.getValue().equals(cards.get(i).getValue())){
@@ -150,7 +154,8 @@ public class Deck {
 		}
 		return -1;
 	}
-	
+
+	//finds the index of a card if it is in the deck (by string)
 	private int findCardIndex(String s){
 		for(int i=0; i < cards.size(); i++){
 			if(s.equals(cards.get(i).getValue())){
