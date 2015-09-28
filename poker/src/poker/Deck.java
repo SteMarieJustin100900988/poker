@@ -1,10 +1,11 @@
 package poker;
 
 import java.util.ArrayList;
+import java.math.*;
 
 public class Deck {
-	ArrayList<Card> cards;
-	ArrayList<Card> validCards;
+	private ArrayList<Card> cards;
+	private ArrayList<Card> validCards;
 
 	public Deck(){
 		cards = basicDeck();
@@ -78,8 +79,12 @@ public class Deck {
 	}
 	
 	public Card dealCard(){
-		Card c = cards.get(0);
-		cards.remove(0);
+		if (cards.size() <= 0){
+			throw new IllegalArgumentException("No cards in deck");
+		}
+		int randomPos = (int)(Math.random() * cards.size());
+		Card c = cards.get(randomPos);
+		cards.remove(randomPos);
 		return c;
 	}
 	
@@ -107,5 +112,26 @@ public class Deck {
 			}
 		}
 		return false;
+	}
+	
+	public Card removeCardFromDeck(Card c){
+		int ind = findCardIndex(c);
+		if(ind > -1){
+			Card r = cards.get(ind);
+			cards.remove(ind);
+			return r;
+		} else {
+			new IllegalArgumentException("Card not in deck");
+			return new Card("Joker", "");
+		}
+	}
+	
+	private int findCardIndex(Card c){
+		for(int i=0; i < cards.size(); i++){
+			if(c.getValue().equals(cards.get(i).getValue())){
+				return i;
+			}
+		}
+		return -1;
 	}
 }
