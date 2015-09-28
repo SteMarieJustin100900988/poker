@@ -21,9 +21,9 @@ public class gameShowsScore {
 		assertEquals(p2id+" "+h2.getFinalValue(), g.getScore(1));
 		
 		if(h1.getValue() == 1){
-			assertEquals(g.getFinalScore(), g.getScore(0) + "\n" + g.getScore(1));
-		} else {
 			assertEquals(g.getFinalScore(), g.getScore(1) + "\n" + g.getScore(0));
+		} else {
+			assertEquals(g.getFinalScore(), g.getScore(0) + "\n" + g.getScore(1));
 		}
 		
 	}
